@@ -115,6 +115,7 @@ int main (int argc, char *argv[]) {
 	    printf("%ld \n", tabl[i]);
     }
     */
+    calc_poids();
 
     return 0;
 }

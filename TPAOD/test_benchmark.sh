@@ -1,11 +1,12 @@
 #!/bin/sh
 
+#compilation avec gcc du fichier
 # Pour les outputs en couleurs
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 
 # Compilation avec gcc du fichier
-gcc ./src/compileBST.c
+gcc -Wall ./src/compileBST.c ./src/racine_optimal.c 
 cp a.out ./bin/a.out
 rm a.out
 
