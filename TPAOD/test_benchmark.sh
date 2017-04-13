@@ -16,7 +16,7 @@ do
     echo "Fichier testé = $nom_fichier"
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
     # Récupération de la sortie de notre programme
-    sortie="$(./bin/a.out $nb_element $nom_fichier)"
+    sortie="$(time ./bin/a.out $nb_element $nom_fichier)"
 
     # A commenter dans la version finale
     echo "$sortie"
