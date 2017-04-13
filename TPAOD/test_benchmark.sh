@@ -2,12 +2,20 @@
 
 #compilation avec gcc du fichier
 gcc ./src/compileBST.c
+cp a.out ./bin/a.out
+rm a.out
 
 for i in ./benchmarks/benchmark*.in
 do
     nom_fichier="${i##\.\/}"
-    echo $nom_fichier
+    echo "Fichier testé = $nom_fichier"
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
-    ./a.out $nb_element $nom_fichier
+    sortie="$(./bin/a.out $nb_element $nom_fichier)"
+    echo "$sortie"
+    
+    nom_fichier_sortie="${nom_fichier%\.in}"
+    nom_fichier_sortie="$nom_fichier_sortie".out
+    #tail -n +2 $mon_fichier_sortie
+
 
 done
