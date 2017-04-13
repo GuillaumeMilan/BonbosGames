@@ -85,12 +85,11 @@ int main (int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
     }
 
-    char c=fgetc(freqFile);
+    char c=' ';
     int i = 0;
     long d = 1;
     tabl = malloc(n*sizeof(long));
-    c=fgetc(freqFile);
-    while(c!=EOF) {
+    while(c!=EOF &&i<n) {
 	if(d==1) {
 	    tabl[i]=0;
 	}
