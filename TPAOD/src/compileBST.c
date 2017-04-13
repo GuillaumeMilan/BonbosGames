@@ -43,6 +43,7 @@ int main (int argc, char *argv[]) {
 	// Conversion of argv[1] en long
 	resuLong = strtol(argv[1], &posError, 10);
 	// Traitement des erreurs
+	fprintf(stderr,"bug\n");
 	switch (errno)
 	{
 		
@@ -86,7 +87,6 @@ int main (int argc, char *argv[]) {
     }
 
     char c=fgetc(freqFile);
-
     int i = 0;
     long d = 1;
     tabl = malloc(n*sizeof(long));
@@ -112,7 +112,7 @@ int main (int argc, char *argv[]) {
     for(i = 0 ; i < n ; i++) {
 	    printf("%ld \n", tabl[i]);
     }
-    //*/
+    */
 
     return 0;
 }

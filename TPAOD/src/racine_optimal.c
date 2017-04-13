@@ -68,3 +68,11 @@ void construire_arbre() {
 	}
     }
 }
+void calc_poids() {
+    int i,j;
+    for(i=0;i<=N;i++) {
+	for(j=i;j<=N;j++) {
+	    racine_optimal(j,j-i);
+	}
+    }
+}

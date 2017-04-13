@@ -14,4 +14,5 @@ struct abr* addr_parcour_moy(int i,int j);
 void construire_arbre();
 int *get_sommet(int i,int j);
 int get_sommet_val(int i,int j);
+void calc_poids();
 #endif

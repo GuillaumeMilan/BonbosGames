@@ -8,6 +8,6 @@ do
     nom_fichier="${i##\.\/}"
     echo $nom_fichier
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
-    ./src/a.out $nb_element $nom_fichier
+    ./a.out $nb_element $nom_fichier
 
 done
