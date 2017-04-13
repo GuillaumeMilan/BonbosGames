@@ -115,6 +115,7 @@ int main (int argc, char *argv[]) {
 	    printf("%ld \n", tabl[i]);
     }
     */
+    list_abr = malloc((N+N*N/2)*sizeof(struct abr));
     calc_poids();
 
     return 0;

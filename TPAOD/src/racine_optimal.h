@@ -3,13 +3,14 @@
 
 
 
-long *tabl;
-long N;
+unsigned long *tabl;
+unsigned long N;
 struct abr *list_abr;//list_abr[i*N+j]=Poids de AbrOpt(i,j)//taille de N/2 N
 
 struct abr {
     unsigned long poids;
     int sommet;
+    long poids_somme;
 };
 
 
