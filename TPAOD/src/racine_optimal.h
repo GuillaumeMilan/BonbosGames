@@ -1,3 +1,4 @@
+long *tabl;
 long N;
 unsigned long *poids;//tabl[i*N+j]=Poids de AbrOpt(i,j)//taille de N/2 N
 int racine_optimal(i,j);

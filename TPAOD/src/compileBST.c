@@ -16,7 +16,6 @@
 #include <string.h>
 #include "racine_optimal.h"
 
-
 /**
  * Main function
  * \brief Main function
@@ -90,7 +89,7 @@ int main (int argc, char *argv[]) {
 
     int i = 0;
     long d = 1;
-    long tabl[n];
+    tabl = malloc(n*sizeof(long));
     do {
 	if(d==1) {
 	    tabl[i]=0;
