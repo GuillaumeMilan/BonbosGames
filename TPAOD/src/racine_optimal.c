@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "racine_optimal.h"
 void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calculé
     struct abr IJmoin=parcour_moy(i,j);
@@ -24,6 +25,7 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calcul�
 	    }
 	}
     }
+    printf("j'ai trouvé : %d\n",addr->sommet);
 }
 
     struct abr parcour_moy(int i,int j) {

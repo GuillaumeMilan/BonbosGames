@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #compilation avec gcc du fichier
-gcc ./src/compileBST.c
+gcc -Wall ./src/compileBST.c ./src/racine_optimal.c 
 cp a.out ./bin/a.out
 rm a.out
 
