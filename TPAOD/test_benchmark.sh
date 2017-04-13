@@ -11,9 +11,11 @@ do
     echo "Fichier testé = $nom_fichier"
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
     sortie="$(./bin/a.out $nb_element $nom_fichier)"
+    echo "$sortie"
     
     nom_fichier_sortie="${nom_fichier%\.in}"
     nom_fichier_sortie="$nom_fichier_sortie".out
     #tail -n +2 $mon_fichier_sortie
+
 
 done
