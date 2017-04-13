@@ -23,14 +23,14 @@ do
     nom_fichier_sortie="${nom_fichier%\.in}"
     nom_fichier_sortie="$nom_fichier_sortie".out
     # Recuperation des bonnes lignes dans le fichier
-    sortie_theorique="$(tail -n +2 $mon_fichier_sortie)"
+    #sortie_theorique="$(tail -n +2 $mon_fichier_sortie)"
 
     # On compare les deux sorties
-    if [ "$sortie_theorique" = "$sortie" ]
-    then
-	echo -e "${GREEN}Passed${NC}"
-    else
-	echo -e "${RED}Failed${NC}"
-    fi
+    #if [ "$sortie_theorique" = "$sortie" ]
+    #then
+	#echo -e "${GREEN}Passed${NC}"
+    #else
+	#echo -e "${RED}Failed${NC}"
+    #fi
 
 done
