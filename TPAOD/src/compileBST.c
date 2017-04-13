@@ -14,7 +14,7 @@
 #include <errno.h>
 #include <assert.h>
 #include <string.h>
-
+#include "racine_optimal.h"
 
 
 /**
@@ -102,7 +102,5 @@ int main (int argc, char *argv[]) {
 	}
     }while(c!=EOF);
     fclose(freqFile);
-
-
     return 0;
 }
