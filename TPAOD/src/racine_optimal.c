@@ -12,7 +12,7 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calculÃ
     else {
 	addr->poids=(unsigned long)-1;
 	addr->sommet=-1;
-	int k,l;
+	int k;
 	unsigned long poids;
 	if(IJplus.sommet-IJmoin.sommet<=1) {
 
@@ -45,12 +45,6 @@ struct abr* addr_parcour_moy(int i,int j) {
     }
     return list_abr+i*N+j;
 }
-int *get_sommet(int i,int j) {
-    return sommet+j+N-1-i;
-}
-int get_sommet_val(int i,int j) {
-    return sommet[j,N-1-i];
-}
 void construire_arbre() {
     int i;
     int j;
@@ -59,10 +53,10 @@ void construire_arbre() {
     for(i=0;i<N;i++) {
 	for(j=i;j<N;j++) {
 	    if(j==0&&i==0) {
-		current_vert = get_sommet_val(i,j);
+		current_vert = parcour_moy(i,j).sommet;
 	    }
 	    else {
-		next_vert = get_sommet_val(i,j);
+		next_vert = parcour_moy(i,j).sommet;
 		if(current_vert!=next_vert) {
 		    //ajouter a l'arbre
 		}
