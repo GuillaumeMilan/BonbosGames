@@ -1,5 +1,6 @@
 #ifndef COLOCOS
 #define COLOCOS
+long *tabl;
 long N;
 struct abr {
     unsigned long poids;

@@ -16,7 +16,6 @@
 #include <string.h>
 #include "racine_optimal.h"
 
-
 /**
  * Main function
  * \brief Main function
@@ -46,7 +45,8 @@ int main (int argc, char *argv[]) {
 	// Traitement des erreurs
 	switch (errno)
 	{
-	    case EXIT_SUCCESS :
+		
+		case EXIT_SUCCESS :
 		// Conversion du long en int
 		if (resuLong > 0)
 		{
@@ -59,7 +59,7 @@ int main (int argc, char *argv[]) {
 		    codeRetour = EXIT_FAILURE;
 		}
 		break;
-
+		
 	    case EINVAL :
 		perror(__func__);
 		(void)fprintf(stderr, "%s does not match a long integer value. \n", argv[1]);
@@ -80,12 +80,16 @@ int main (int argc, char *argv[]) {
     }
 
     freqFile = fopen(argv[2] , "r" );
-    if (freqFile==NULL) {fprintf (stderr, "!!!!! Error opening originalFile !!!!!\n"); exit(EXIT_FAILURE);}
+    if (freqFile==NULL) {
+	fprintf (stderr, "!!!!! Error opening originalFile !!!!!\n"); 
+	exit(EXIT_FAILURE);
+    }
+
     char c=fgetc(freqFile);
 
-    int i=0;
-    int d=1;
-    int tabl[n];
+    int i = 0;
+    long d = 1;
+    tabl = malloc(n*sizeof(long));
     do {
 	if(d==1) {
 	    tabl[i]=0;
@@ -102,5 +106,13 @@ int main (int argc, char *argv[]) {
 	}
     }while(c!=EOF);
     fclose(freqFile);
+
+    /*
+    // Test pour vérifier le stockage dans le tableau des valeurs du fichier
+    for(i = 0 ; i < n ; i++) {
+	    printf("%ld \n", tabl[i]);
+    }
+    //*/
+
     return 0;
 }
