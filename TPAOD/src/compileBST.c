@@ -14,7 +14,7 @@
 #include <errno.h>
 #include <assert.h>
 #include <string.h>
-
+#include "racine_optimal.h"
 
 
 /**
@@ -114,7 +114,6 @@ int main (int argc, char *argv[]) {
 	    printf("%ld \n", tabl[i]);
     }
     //*/
-
 
     return 0;
 }
