@@ -21,7 +21,7 @@ $(BINDIR)/compileBST: $(CSOURCE)
 	$(CC) $(CFLAGS)  $^ -o $@
 
 %.pdf: $(LATEXSOURCE)
-	$(LATEXC) -output-directory $(REPORTDIR) $^ 
+	$(LATEXC) -output-directory $(REPORTDIR) $^ < .debug
 
 $(DOCDIR)/index.html: $(SRCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(SRCDIR)/Doxyfile
