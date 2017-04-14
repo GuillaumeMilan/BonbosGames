@@ -78,22 +78,15 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
       de la machine et la méthode utilisée pour mesurer le temps.
      }
 
-    \subsubsection{Description synthétique de la machine\,:} 
-      {\em indiquer ici le  processeur et sa fréquence, la mémoire, le système d'exploitation. 
-       Préciser aussi si la machine était monopolisée pour un test, ou notamment si 
-       d'autres processus ou utilisateurs étaient en cours d'exécution. 
-      } 
+    \subsubsection{Description synthétique de la machine\,:}
+    
+    Tous les tests ont été effectués sans qu'il y ait d'éventuels programmes parasites qui tournent sur la machine. Grace à la commande \textit{cat /proc/cpuinfo}, on trouve les données de la machine. Celle-ci est dotée de l'OS Ubuntu. Son processeur est un Intel Pentium qui tourne a 2.20 GHz, avec 2 Mo de cache.
 
     \subsubsection{Méthode utilisée pour les mesures de temps\,: } 
-      {\em préciser ici  comment les mesures de temps ont été effectuées (fonction appelée) et l'unité de temps; en particulier, 
-       préciser comment les 5 exécutions pour chaque test ont été faites (par exemple si le même test est fait 5 fois de suite, ou si les tests sont alternés entre
-       les mesures, ou exécutés en concurrence etc). 
-      }
+    
+    L'ensemble des mesures effectuées sur le temps d'exécution a été faite à l'aide de la commande time d'UNIX. Les 5 exécutions ont été faite consécutivement et avec aucun programme lancé simultanément (on limite de ce fait le risque d'un potentiel ralentissement du temps de calcul).
 
   \subsection{Mesures expérimentales}
-    {\em Compléter le tableau suivant par les temps d'exécution mesurés pour chacun des 6 benchmarks imposés
-              (temps minimum, maximum et moyen sur 5 exécutions)
-    }
 
     \begin{figure}[h]
       \begin{center}
