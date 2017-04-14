@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #compilation avec gcc du fichier
 # Pour les outputs en couleurs
@@ -12,14 +12,21 @@ rm a.out
 
 for i in ./benchmarks/benchmark*.in
 do
+    echo "" 
+    echo ""
     nom_fichier="${i##\.\/}"
     echo "Fichier testé = $nom_fichier"
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
     # Récupération de la sortie de notre programme
-    sortie="$(time ./bin/a.out $nb_element $nom_fichier)"
-
+    sortie="$(time -f ./bin/a.out $nb_element $nom_fichier > fichier.txt)"
+    echo 
+    #DIFF=$(diff fichier.txt $file)
+    #if [ "$DIFF" != "" ]
+    #then 
+	#echo $DIFF ca marche pas 
+    #fi
     # A commenter dans la version finale
-    echo "$sortie"
+    #echo "$sortie"
     
     nom_fichier_sortie="${nom_fichier%\.in}"
     nom_fichier_sortie="$nom_fichier_sortie".out

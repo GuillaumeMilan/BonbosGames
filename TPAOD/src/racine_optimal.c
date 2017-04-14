@@ -84,30 +84,6 @@ struct abr* addr_parcour_moy(int i,int j) {
     }
     return list_abr+i*N+j;
 }
-void inserer(int i,int racine) {
-    struct node current_node=arbre[racine];
-    if(arbre[i].fait=true)
-	return;//deja place
-    while((current_node.noeudd!=-1&&current_node.sommet<i) ||
-	    (current_node.noeudg!=-1&&current_node.sommet>i)) {
-	if(current_node.sommet<i) {
-	    current_node=arbre[current_node.noeudd];
-	}
-	else {
-	    current_node=arbre[current_node.noeudd];
-	}
-    }
-    if(current_node.sommet<i) {
-	current_node.noeudd=i;
-    }
-    else {
-	current_node.noeudg=i;
-    }
-    arbre[i].sommet=i;
-    arbre[i].noeudd=-1;
-    arbre[i].noeudg=-1;
-    arbre[i].fait=true;
-}
 /*
  * i toujours racine précédente
  */
@@ -141,9 +117,6 @@ int inserer_recure(int i,int j) {
 }
 void construire_arbre() {
     int i;
-    int j;
-    int current_vert;
-    int next_vert;
     int racine =  parcour_moy(0,(int)N-1).sommet;
     //printf("RACINE = %d de (0,%lu)\n",racine,N-1);
     arbre[racine].fait=true;
@@ -152,10 +125,13 @@ void construire_arbre() {
     arbre[racine].sommet=racine;//on pourrait lavoir avec une diff de ptr
     //mais ca fait gagner des bannanes 
     inserer_recure(0,(int)N-1);
-    printf("static int BSTroot = 2;\n");//je sais pas ce qu'il faut mettre
+    printf("static int BSTroot = %d;\n",racine);
     printf("static int BSTtree[%lu][2] = {",N);
     for(i=0;i<N;i++) {
-	printf("\n{%d,%d},",arbre[i].noeudg,arbre[i].noeudd);
+	if(i<N-1) 
+	    printf("\n{%d, %d}, ",arbre[i].noeudg,arbre[i].noeudd);
+	else 
+	    printf("\n{%d, %d}",arbre[i].noeudg,arbre[i].noeudd);
     }
     printf(" };");
 }

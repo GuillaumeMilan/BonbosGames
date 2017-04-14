@@ -48,10 +48,6 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (2 points)}
-{\em Donner ici l'analyse du coût théorique de votre programme en fonction du nombre $n$ d'éléments dans le dictionnaire.
- Pour chaque coût, donner la formule qui le caractérise (en justifiant brièvement pourquoi cette formule correspond à votre programme), 
- puis l'ordre du coût en fonction de $n$ en notation $\Theta$ de préférence, sinon $O$.}
-
   \subsection{Nombre  d'opérations en pire cas\,: }
     Le nombre d'opération dans le pire cas est $\Theta(n^3)$
     \paragraph{Justification\,: }
@@ -66,8 +62,12 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
     Deplus pour éviter les défaut de cache un maximum nous faison en sorte que $M(i,k-1)$ soit proche de $M(k+1,j)$ grace à une fonction de relocalisation simple. 
     Finalement pour que ces valeurs soit proche en mémoire nous indiçons les ligne sur $j$ et les collone sur $i$.
   \subsection{Nombre de défauts de cache sur le modèle CO\,: }
+    Je n'arrive pas à le calculer.
     \paragraph{Justification\,: }
-
+    Grâce à ma fonction qui est censé optimiser le nombre de defaut de cache, je ne vois pas comment calculer.
+    En effet, si on suppose que notre cache à une taille $d$, et que l'on regarde les recherche de valeur dans notre marice de valeur, 
+    on obtient que la probabilité que $k<\fract{<j
+    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compte rendu d'expérimentation (2 points)}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.8)  14 APR 2017 11:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.8)  14 APR 2017 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,6 +737,23 @@ l.41 $P_k(i,j)=\fract
                      {P(i,k-1)*P_{tot}(i,k-1)+P_{tot}(k,k)+P(k+1,j)*P_{tot}(...
 
 ? 
+! Undefined control sequence.
+<recently read> \fract 
+                       
+l.58 ...es $(i-j)$ possibilité. Or il y a $\fract
+                                                  {n(n+1)}{2}$ sous arbres. ...
+
+? 
+! Undefined control sequence.
+<recently read> \Theata 
+                        
+l.61 ...n moyenne fait passer ce coùt à $\Theata
+                                                  (n^2)$
+? 
+! Undefined control sequence.
+l.63 ...me demander. Et enfin un tableau $n+\fract
+                                                  {n*n}{2}$
+? 
 
 Overfull \vbox (42.67912pt too high) has occurred while \output is active []
 
@@ -749,10 +766,10 @@ Overfull \vbox (42.67912pt too high) has occurred while \output is active []
 
 [2] (./rapport/rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 12236 strings out of 495028
- 216729 string characters out of 6181497
- 261517 words of memory out of 5000000
- 15179 multiletter control sequences out of 15000+600000
+ 12238 strings out of 495028
+ 216740 string characters out of 6181497
+ 262517 words of memory out of 5000000
+ 15181 multiletter control sequences out of 15000+600000
  14917 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,8n,55p,459b,249s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -764,17 +781,15 @@ ecrm1000.600pk> </home/guignomes/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx144
 e/guignomes/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600pk> </home/guign
 omes/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/guignomes/.t
 exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb>
-Output written on ./rapport/rapport.pdf (2 pages, 141757 bytes).
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb>
+Output written on ./rapport/rapport.pdf (2 pages, 129638 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 330 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

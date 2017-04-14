@@ -1,4 +1,3 @@
-static long BSTdepth = 452533877; // pour info. Non demandé
 static int BSTroot = 1511;
 static int BSTtree[3000][2] = {
 {-1, -1}, 
