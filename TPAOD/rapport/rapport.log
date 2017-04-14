@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.8)  14 APR 2017 15:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.8)  14 APR 2017 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -761,6 +761,12 @@ Overfull \vbox (42.67912pt too high) has occurred while \output is active []
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+! Undefined control sequence.
+l.72 ... obtient que la probabilité que $k<\fract
+                                                  {n}{2}<j$ n'est pas négli...
+
+? 
+
 Overfull \vbox (42.67912pt too high) has occurred while \output is active []
 
 
@@ -786,9 +792,9 @@ nts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb>
-Output written on ./rapport/rapport.pdf (2 pages, 129638 bytes).
+Output written on ./rapport/rapport.pdf (2 pages, 132294 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
+ 336 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
