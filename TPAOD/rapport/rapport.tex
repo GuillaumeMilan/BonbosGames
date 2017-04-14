@@ -35,15 +35,16 @@ KOUVTANOVITCH Geoffrey (SLE)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Principe de notre  programme (1 point)}
-{\em Mettre ici une explication brève du principe de votre programme en  précisant la méthode implantée (récursive, itérative) et les
-choix effectués (notamment pour l'ordonnancement des instructions).
-}
-
-Afin de déterminer l'arbre binaire de recherche optimal, nous sélectionnons pas à pas les noeuds de probabilité d'apparition maximale. Pour cela, pour une entrée à $n$ valeurs nous commencons par stocker chaque sommet sur la diagonale d'une matrice $(n*n)$. Ensuite dans les cases de la matrice de la diagonale supérieure nous sélectionnons le nouveau sommet entre les deux cases adjacentes déjà remplies qui aura la probabilité d'apparition la plus importante dans l'arbre composé de ces 2 sommets. On passe ensuite à la diagonale supérieure et on effectue la même procédure mais pour les arbres à 3 éléments, etc... Simultanément, nous stockons le nombre moyen de comparaisons ($p_i * profondeur$) effectué dans chaque arbre dans une seconde matrice.
-
-Une fois la matrice construite, on déduit l'arbre de recherche optimal pas à pas en reparcourant les 2 matrices dans le sens inverse de remplissage.
-
-Cette méthode est basée sur l'algorithme de Knuth et s'effectue de manière itérative.
+L'objectif du programme est d'obtenir l'arbre de parcour optimal sur l'ensemble des éléments. Pour cela nous avons donc chercher à obtenir la racine optimal de notre arbre. Mais par l'expression évoqué dans le rapport précédent liant un arbre optimal a ses sous arbres droite et gauche. 
+Ainsi pour trouver la racine de optimal l'arbre contenant les éléments $i$ à $j$ il suffit de parcourir tout les éléments $k$ entre $i$ et $j$ et en choisissant $k$ comme racine de l'arbre. 
+Cet arbre a donc pour profondeur moyenne d'après la formule du rapport précédent: \\
+$P_k(i,j)=\fract{P(i,k-1)*P_{tot}(i,k-1)+P_{tot}(k,k)+P(k+1,j)*P_{tot}(k+1,j)}{P_{tot}(i,j)}$ \\
+on en déduit que pour cela il faut connaitre les arbre optimaux de $(i,k-1)$ et $(k+1,j)$ pour tout $k$. Ceci implique de le calculer avant. 
+Nous avons donc fait le choix d'organiser notre programme avec une structure de donné contenant la profondeur moyenne d'un arbre optimal, sa racine et son poids total. 
+Cette structure est alors utilisé pour fabriquer une matrice (cf Figure:1) diagonal supérieur qui stocke les information des arbre optimaux. 
+Ici $M(i,j)$ contient les données de l'arbre optimal entre $i$ et $j$. \\
+{\em Pour des raison de clarté et d'homogénéité au programme, la matrice a ses indices qui commence à 0}\\
+Une fois cette matrice calculé il suffit de construire l'arbre optimal en partant de la racine $M(0,n-1)$ avec $n$ la taille de la matrice en respecatant le principe de construction d'arbre optimal. C'est à dire que tout sous arbre est optimal. (cf Figure:2 et Figure:3).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (2 points)}
@@ -52,19 +53,18 @@ Cette méthode est basée sur l'algorithme de Knuth et s'effectue de manière it
  puis l'ordre du coût en fonction de $n$ en notation $\Theta$ de préférence, sinon $O$.}
 
   \subsection{Nombre  d'opérations en pire cas\,: }
+    Le nombre d'opération dans le pire cas est $\Theta(n^3)$
     \paragraph{Justification\,: }
-    {\em La justification peut être par exemple de la forme: \\ 
-       "Le programme itératif contient les boucles $k_1=...$, $k_2= ...$ etc correspondant à la somme 
-      $$T(n_1, n_2, c_1, c_2) = \sum_{k_1=...}^{...} ... \sum ... + \sum_{i=...}^{...} ...$$ 
-      somme que nous avons calculée (ou majorée) par la technique de  ... " \\
-      ou  encore\,:  \\
-      "les appels récursifs du programme permettent de modéliser son coût par le système d'équations aux récurrences 
-      $$T(k_1, k_2) = ...  \mbox{~avec~les~conditions~initiales~....~} $$
-      Le coût indiqué est obtenu en résolvant ce système par la méthode de  .... "
-    } 
-  \subsection{Place mémoire requise\,: }
+	Pour effectuer le calcul de chaque sous arbre nous parcourons les $(i-j)$ possibilité. Or il y a $\fract{n(n+1)}{2}$ sous arbres. Ansi le produit de l'imbrication de ces boucle dans le résulats: \\
+	$\Theta(n^3)$
+    \paragraph{Optimisation}
+    Cependant nous utilisons aussi la méthode de Knuth qui en moyenne fait passer ce coùt à $\Theata(n^2)$
+      \subsection{Place mémoire requise\,: }
+      La place en mémoire requise est un tableau de $n$ élément comprenant les poids du fichier. Puis un tableau de $n$ élement représentant l'arbre sous la forme demander. Et enfin un tableau $n+\fract{n*n}{2}$
     \paragraph{Justification\,: }
-
+    Pour stocker toutes les valeurs indispensable des sous arbre optimaux, il faudrait une matrice de taille $n\times n$. Mais dont le triangle inférieur n'est pas utilisé. Deplus les valeurs de la dignonale de cette matrice sont facilement retrouvable. Nous avons donc décidé de déplacer les valeur supérieur à la moitié dans le triangle inférieur. (cf figure:3) \\
+    Deplus pour éviter les défaut de cache un maximum nous faison en sorte que $M(i,k-1)$ soit proche de $M(k+1,j)$ grace à une fonction de relocalisation simple. 
+    Finalement pour que ces valeurs soit proche en mémoire nous indiçons les ligne sur $j$ et les collone sur $i$.
   \subsection{Nombre de défauts de cache sur le modèle CO\,: }
     \paragraph{Justification\,: }
 
