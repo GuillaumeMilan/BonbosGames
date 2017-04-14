@@ -1,6 +1,19 @@
+/*! \file racine_optimal.c
+ * \brief calcul et fonction de creation d'arbre
+ * \author milang
+ * \date 12/04/2017
+ */
+
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "racine_optimal.h"
+/**
+ * \brief remplie le tableau 
+ * \param i origine de l'essemble a generer 
+ * \param j fin de l'ensemble à generer 
+ */
 void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calculé
     struct abr* addr=addr_parcour_moy(i,j);
     struct abr IJmoin=parcour_moy(i,j-1);
@@ -57,7 +70,12 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calcul�
 
     //printf("j'ai trouvé : %d\n",addr->sommet);
 }
-
+/**
+ * \brief hachage pour linéariser la memoire
+ * \param i coordonnee virtuel i
+ * \param j coordonnee virtuel j
+ * \returns la struct abr contenu aux adresse virtuel (i,j)
+ */
 struct abr parcour_moy(int i,int j) {
     struct abr rien={-1,-1};
     if(i>j) { return rien;}//Tableau de diagonal 
@@ -75,6 +93,12 @@ struct abr parcour_moy(int i,int j) {
     }
     return list_abr[i*N+j];
 }
+/**
+ * \brief Voir parcour_moy différence : la coordonnee (i,i) est interdite
+ * \params i coordonnee virtuel i
+ * \params j coordonnee virtuel j
+ * \returns l'adresse de la struct abr contenu à l'adresse (i,j)
+ */
 struct abr* addr_parcour_moy(int i,int j) {
     if(i>=j) { return NULL;}//Tableau triangulaire sup 
     if(i>N/2) {
@@ -84,8 +108,11 @@ struct abr* addr_parcour_moy(int i,int j) {
     }
     return list_abr+i*N+j;
 }
-/*
- * i toujours racine précédente
+/**
+ * \brief insere les valeurs dans l'arbre de manière récursive (si le premier appelle est bien (0,N-1)
+ * \param i debut de l'ensemble ou chercher la racine optimal
+ * \param j fin de l'ensemble ou chercher la racine optimal
+ * \returns la valeur du sommet choisi pour pouvoir l'afficher comme racined du noeud precedent
  */
 int inserer_recure(int i,int j) {
     int sommet;
@@ -98,6 +125,7 @@ int inserer_recure(int i,int j) {
 	sommet = parcour_moy(i,j).sommet;
     }
     else {
+	//normalement inutile
 	sommet = parcour_moy(j,i).sommet;
     }
     //printf("Le sommet est %d\n",sommet);
@@ -115,6 +143,9 @@ int inserer_recure(int i,int j) {
     }
     return sommet;
 }
+/**
+ * \brief fait l'affichage de l'arbre sur la sortie stdout
+ */
 void construire_arbre() {
     int i;
     int racine =  parcour_moy(0,(int)N-1).sommet;

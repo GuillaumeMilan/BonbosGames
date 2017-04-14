@@ -18,8 +18,8 @@ do
     echo "Fichier testé = $nom_fichier"
     nb_element="$(grep -o [-]*[0-9]* $i | wc -l)"
     # Récupération de la sortie de notre programme
-    sortie="$(time -f ./bin/a.out $nb_element $nom_fichier > fichier.txt)"
-    echo 
+    sortie="$(time ./bin/compileBST $nb_element $nom_fichier )"
+    echo $sortie 
     #DIFF=$(diff fichier.txt $file)
     #if [ "$DIFF" != "" ]
     #then 

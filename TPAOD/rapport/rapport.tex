@@ -53,7 +53,7 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
  puis l'ordre du coût en fonction de $n$ en notation $\Theta$ de préférence, sinon $O$.}
 
   \subsection{Nombre  d'opérations en pire cas\,: }
-    Le nombre d'opération dans le pire cas est $\Theta(n^3)$
+  Le nombre d'opération dans le pire cas est $\Theta(n^3)$ avant optimisation et en $\Theta(n^2)$ après.
     \paragraph{Justification\,: }
 	Pour effectuer le calcul de chaque sous arbre nous parcourons les $(i-j)$ possibilité. Or il y a $\fract{n(n+1)}{2}$ sous arbres. Ansi le produit de l'imbrication de ces boucle dans le résulats: \\
 	$\Theta(n^3)$
@@ -67,7 +67,9 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
     Finalement pour que ces valeurs soit proche en mémoire nous indiçons les ligne sur $j$ et les collone sur $i$.
   \subsection{Nombre de défauts de cache sur le modèle CO\,: }
     \paragraph{Justification\,: }
-
+    Grâce à ma fonction qui est censé optimiser le nombre de defaut de cache, je ne vois pas comment calculer.
+    En effet, si on suppose que notre cache à une taille $d$, et que l'on regarde les recherche de valeur dans notre marice de valeur, 
+    on obtient que la probabilité que $k<\fract{n}{2}<j$ n'est pas négligeable. Mais je ne sais pas comment la claculer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compte rendu d'expérimentation (2 points)}
@@ -115,10 +117,8 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
     \end{figure}
 
 \subsection{Analyse des résultats expérimentaux}
-{\em Donner  une réponse justifiée  à la question\,: 
-              les  temps mesurés correspondent ils  à votre analyse théorique (nombre d’opérations et défauts de cache) ?
-}
-
+    Les résultats expérimentaux sont en accord avec l'analyse théorique. En effet on obtient bien une croissance du temps en $\Theta(n^2)$. 
+    Et pour les défauts de cache expérimentaux on obitent environ 1000 defaut de cache sur 5000.
 \end{document}
 %% Fin mise au format
 

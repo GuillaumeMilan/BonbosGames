@@ -10,7 +10,7 @@ DOCDIR=$(REFDIR)/doc
 REPORTDIR=$(REFDIR)/rapport
 
 LATEXSOURCE=$(wildcard $(REPORTDIR)/*.tex)
-CSOURCE=$(wildcard $(SRCDIR)/compileBST.c)
+CSOURCE=$(wildcard $(SRCDIR)/compileBST.c $(SRCDIR)/racine_optimal.c)
 PDF=$(LATEXSOURCE:.tex=.pdf)
 
 
