@@ -48,6 +48,10 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (2 points)}
+{\em Donner ici l'analyse du coût théorique de votre programme en fonction du nombre $n$ d'éléments dans le dictionnaire.
+ Pour chaque coût, donner la formule qui le caractérise (en justifiant brièvement pourquoi cette formule correspond à votre programme), 
+ puis l'ordre du coût en fonction de $n$ en notation $\Theta$ de préférence, sinon $O$.}
+
   \subsection{Nombre  d'opérations en pire cas\,: }
     Le nombre d'opération dans le pire cas est $\Theta(n^3)$
     \paragraph{Justification\,: }
@@ -62,11 +66,11 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
     Deplus pour éviter les défaut de cache un maximum nous faison en sorte que $M(i,k-1)$ soit proche de $M(k+1,j)$ grace à une fonction de relocalisation simple. 
     Finalement pour que ces valeurs soit proche en mémoire nous indiçons les ligne sur $j$ et les collone sur $i$.
   \subsection{Nombre de défauts de cache sur le modèle CO\,: }
-    Je n'arrive pas à le calculer.
     \paragraph{Justification\,: }
     Grâce à ma fonction qui est censé optimiser le nombre de defaut de cache, je ne vois pas comment calculer.
     En effet, si on suppose que notre cache à une taille $d$, et que l'on regarde les recherche de valeur dans notre marice de valeur, 
     on obtient que la probabilité que $k<\fract{n}{2}<j$ n'est pas négligeable. Mais je ne sais pas comment la claculer.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compte rendu d'expérimentation (2 points)}
   \subsection{Conditions expérimentaless}
@@ -96,21 +100,21 @@ Une fois cette matrice calculé il suffit de construire l'arbre optimal en parta
         \begin{tabular}{|l||r||r|r|r||}
           \hline
           \hline
-            & coût         & temps     & temps   & temps \\
-            & du patch     & min       & max     & moyen \\
+            & temps     & temps   & temps     \\
+            & min(ms)  & max(ms)  & moyen (ms)\\
           \hline
           \hline
-            benchmark1 &      &     &     &     \\
+            benchmark1 & < 1 & < 1 & < 1 \\
           \hline
-            benchmark2 &      &     &     &     \\
+            benchmark2 & < 1 & < 1 & < 1 \\
           \hline
-            benchmark3 &      &     &     &     \\
+            benchmark3 & 56 & 60 & 57.6 \\
           \hline
-            benchmark4 &      &     &     &     \\
+            benchmark4 & 228 & 268 & 238.4 \\
           \hline
-            benchmark5 &      &     &     &     \\
+            benchmark5 & 544 & 556 & 550.4 \\
           \hline
-            benchmark6 &      &     &     &     \\
+            benchmark6 & 1.908 & 1.988 & 1.9456 \\
           \hline
           \hline
         \end{tabular}
