@@ -68,7 +68,7 @@ struct abr parcour_moy(int i,int j) {
 	retour.sommet=i;
 	return retour;
     }
-    if(j>N/2) {
+    if(i>N/2) {
 	j=N-(j+1);//cf dessin
 	i=N-(i+1);
 	//printf("i : %d , j : %d\n",i,j);
@@ -77,7 +77,7 @@ struct abr parcour_moy(int i,int j) {
 }
 struct abr* addr_parcour_moy(int i,int j) {
     if(i>=j) { return NULL;}//Tableau triangulaire sup 
-    if(j>N/2) {
+    if(i>N/2) {
 	j=N-(j+1);//cf dessin
 	i=N-(i+1);
 	//printf("i : %d , j : %d\n",i,j);
