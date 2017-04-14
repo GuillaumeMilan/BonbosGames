@@ -55,7 +55,7 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calcul�
 	}
     }
 
-    printf("j'ai trouvé : %d\n",addr->sommet);
+    //printf("j'ai trouvé : %d\n",addr->sommet);
 }
 
 struct abr parcour_moy(int i,int j) {
@@ -124,7 +124,7 @@ int inserer_recure(int i,int j) {
     else {
 	sommet = parcour_moy(j,i).sommet;
     }
-    printf("Le sommet est %d\n",sommet);
+    //printf("Le sommet est %d\n",sommet);
     if(sommet==j) {
 	arbre[sommet].noeudd=-1;
 	arbre[sommet].noeudg=inserer_recure(i,sommet-1);
@@ -163,7 +163,7 @@ void calc_poids() {
     int i,j;
     for(i=0;i<N;i++) {
 	for(j=i;j<N;j++) {
-	    printf("(%d,%d)\n",j-i,j);
+	    //printf("(%d,%d)\n",j-i,j);
 	    racine_optimal(j-i,j);
 	}
     }
