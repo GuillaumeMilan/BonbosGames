@@ -17,8 +17,8 @@
 
 \title{Rapport de TP 4MMAOD : Génération d'ABR optimal}
 \author{
-NOM Prénom étudiant$_1$ (groupe étudiant$_1$) 
-\\ NOM Prénom étudiant$_2$ (groupe étudiant$_2$) 
+MILAN Guillaume (SLE) 
+KOUVTANOVITCH Geoffrey (SLE) 
 }
 
 \begin{document}
@@ -37,7 +37,13 @@ NOM Prénom étudiant$_1$ (groupe étudiant$_1$)
 \section{Principe de notre  programme (1 point)}
 {\em Mettre ici une explication brève du principe de votre programme en  précisant la méthode implantée (récursive, itérative) et les
 choix effectués (notamment pour l'ordonnancement des instructions).
-} 
+}
+
+Afin de déterminer l'arbre binaire de recherche optimal, nous sélectionnons pas à pas les noeuds de probabilité d'apparition maximale. Pour cela, pour une entrée à $n$ valeurs nous commencons par stocker chaque sommet sur la diagonale d'une matrice $(n*n)$. Ensuite dans les cases de la matrice de la diagonale supérieure nous sélectionnons le nouveau sommet entre les deux cases adjacentes déjà remplies qui aura la probabilité d'apparition la plus importante dans l'arbre composé de ces 2 sommets. On passe ensuite à la diagonale supérieure et on effectue la même procédure mais pour les arbres à 3 éléments, etc... Simultanément, nous stockons le nombre moyen de comparaisons ($p_i * profondeur$) effectué dans chaque arbre dans une seconde matrice.
+
+Une fois la matrice construite, on déduit l'arbre de recherche optimal pas à pas en reparcourant les 2 matrices dans le sens inverse de remplissage.
+
+Cette méthode est basée sur l'algorithme de Knuth et s'effectue de manière itérative.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (2 points)}
@@ -118,17 +124,6 @@ choix effectués (notamment pour l'ordonnancement des instructions).
 \subsection{Analyse des résultats expérimentaux}
 {\em Donner  une réponse justifiée  à la question\,: 
               les  temps mesurés correspondent ils  à votre analyse théorique (nombre d’opérations et défauts de cache) ?
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Question bonus\,: programme {\tt mystere.c}(2 points)}
-\subsection{Que fait le programme mystère et dans quel but? (1.5 point)}
-{\em Dire brièvement ce que fait le programme mystere et quel est l'impact lors de l'exécution 
-(i.e. lors de recherches avec le dictionnaire) de ce post-traitement.}
-
-\subsection{Qu'en pensez-vous? (0.5 point) } 
-{\em Répondre à l'argumentation en justifiant : soit que le programme mystere est (presque) optimal (justifier les hypothèses) ; soit qu'il n'est pas optimal en 
-justifiant comment faire encore mieux.
 }
 
 \end{document}
