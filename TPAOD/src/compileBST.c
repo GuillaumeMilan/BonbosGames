@@ -114,8 +114,10 @@ int main (int argc, char *argv[]) {
 	    printf("%ld \n", tabl[i]);
     }
     */
+    arbre=calloc(N,sizeof(struct node));
     list_abr = malloc((N+N*N/2)*sizeof(struct abr));
     calc_poids();
-
+    printf("Main : Parcour moy (0,4):%d\n",parcour_moy(0,4).sommet);
+    construire_arbre();
     return 0;
 }
