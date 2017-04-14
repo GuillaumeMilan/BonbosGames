@@ -6,9 +6,11 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calcul√
     struct abr IJplus=parcour_moy(i+1,j);
     struct abr* addr=addr_parcour_moy(i,j);
     if(i==j) {
-	addr->poids=tabl[i];
+	/*addr->poids=tabl[i];
 	addr->sommet=i;
-	addr->poids_somme=tabl[i];
+	addr->poids_somme=tabl[i];*/ //pas besoin de le memoyser : on a toute les info dans tabl 
+	//printf("J'ai trouv√© : %d\n",i);
+	return;
     }
     else {
 	addr->poids=(unsigned long)-1;
@@ -20,47 +22,65 @@ void racine_optimal(int i,int j) {//suppose que pour i,j-1 et i+1,j deja calcul√
 	    struct abr tempd;
 	    struct abr tempg;
 	    if(k==i) {
+		//printf("k==i==%d\n",i);
 		tempg = parcour_moy(k+1,j);
+		//printf("sommet %d prof : %lu poids :%lu\n",tempg.sommet,tempg.poids,tempg.poids_somme); 
+		//printf("poids_origine : %lu\n",tabl[k+1]);
 		poids = tabl[k]+tempg.poids+tempg.poids_somme;
 		tempd.poids_somme=0;
 	    }
 	    else if(k==j) {
-		tempg = parcour_moy(k+1,j);
+		//printf("k==j==%d\n",j);
+		tempg = parcour_moy(i,k-1);
+		//printf("sommet %d prof : %lu poids :%lu\n",tempg.sommet,tempg.poids,tempg.poids_somme); 
 		poids = tempg.poids+tabl[k]+tempg.poids_somme;
 		tempd.poids_somme=0;
 	    }
 	    else {
 		tempg = parcour_moy(k+1,j);
-		tempg = parcour_moy(k+1,j);
-		poids = tempg.poids_somme+tempg.poids+tabl[k]+tempd.poids_somme+tempg.poids;
+		tempd = parcour_moy(i,k-1);
+		if(i==0&&j==4) {
+		  //  printf("poids_d: %d,sme_poids_d: %d",1,2);
+		}
+		poids = tempg.poids_somme+tempg.poids+tabl[k]+tempd.poids_somme+tempd.poids;
 	    }
-		printf("poids : %lu\n",poids);
+		//printf("sommet : %d , poids : %lu\n",k,poids);
 	    if(poids<addr->poids) {
 		addr->sommet=k;
 		addr->poids=poids;
 		addr->poids_somme=tempd.poids_somme+tempg.poids_somme+tabl[k];
+		//printf("poids somme %lu\n",addr->poids_somme); 
 	    }
 
 	}
     }
 
-    printf("j'ai trouv√© : %d\n",addr->sommet);
+    //printf("j'ai trouv√© : %d\n",addr->sommet);
 }
 
 struct abr parcour_moy(int i,int j) {
     struct abr rien={-1,-1};
     if(i>j) { return rien;}//Tableau de diagonal 
+    if(i==j) {
+	struct abr retour;
+	retour.poids=tabl[i];
+	retour.poids_somme=tabl[i];
+	retour.sommet=i;
+	return retour;
+    }
     if(j>N/2) {
-	j=N-j;//cf dessin
+	j=N-(j+1);//cf dessin
 	i=N-(i+1);
+	//printf("i : %d , j %d\n",i,j);
     }
     return list_abr[i*N+j];
 }
 struct abr* addr_parcour_moy(int i,int j) {
     if(i>j) { return NULL;}//Tableau de diagonal 
     if(j>N/2) {
-	j=N-(j);//cf dessin
+	j=N-(j+1);//cf dessin
 	i=N-(i+1);
+	//printf("i : %d , j %d\n",i,j);
     }
     return list_abr+i*N+j;
 }
@@ -87,7 +107,7 @@ void calc_poids() {
     int i,j;
     for(i=0;i<N;i++) {
 	for(j=i;j<N;j++) {
-	    printf("(%d,%d)\n",j-i,j);
+	    //printf("(%d,%d)\n",j-i,j);
 	    racine_optimal(j-i,j);
 	}
     }
